@@ -1,17 +1,6 @@
 import React, {useState} from 'react';
 import type {Node} from 'react';
-import {
-  Button,
-  FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {NavBar} from './src/components/NavBar';
 import {Addtodo} from './src/components/AddTodo';
 import Todo from './src/components/Todo';
@@ -37,14 +26,12 @@ const App: () => Node = () => {
       <NavBar title="Todo App" />
       <View style={styles.container}>
         <Addtodo addTodo={addTodo} />
-        
 
-        <FlatList data={todos}
-        keyExtractor={item => item.id}
+        <FlatList
+          data={todos}
+          keyExtractor={item => item.id}
           renderItem={({item}) => <Todo todo={item} removeTodo={removeTodo} />}
         />
-
-
       </View>
     </View>
   );
